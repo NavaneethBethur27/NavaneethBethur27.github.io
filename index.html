@@ -1,69 +1,345 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="viewport"
-    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-  <meta name="description" content="Awesome GitHub Profile Readme Templates" />
-  <title>Awesome GitHub Profile Readme Templates</title>
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar-folder.min.css" />
-
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@3/dist/docsify-themeable/style.min.css"
-    type="text/css">
-
-  <!-- docsify-themeable styles-->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css" title="light">
-  <link rel="stylesheet alternative" href="//cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css"
-    title="dark">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navaneeth Bethur - Portfolio</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <!-- AOS Animate on Scroll -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-Ho8dN80rLtkPJhTcmdqPT+ZHe0W9mft/wXXpouKt9kO0gN7XbnCRZbMtVIpmdIc/rPMHmU9Pe6bAZejg0aM/Rg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
-    .sidebar-nav li>a[href^="/"]:not([href*="?id="]),
-    .sidebar-nav li>a[href^="/"]:not([href*="?id="])~ul a,
-    .sidebar-nav li>a[href^="#/"]:not([href*="?id="]),
-    .sidebar-nav li>a[href^="#/"]:not([href*="?id="])~ul a {
-      padding: 0;
+    /* Basic Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Open Sans', sans-serif; line-height: 1.6; color: #333; background: #f9f9f9; }
+
+    /* Navbar */
+    nav { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 1000; }
+    .nav-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 1rem; }
+    .nav-brand { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.2rem; color: #0066cc; }
+    .nav-links { list-style: none; display: flex; align-items: center; }
+    .nav-links li { position: relative; }
+    .nav-links li a, .nav-links li span { display: block; padding: 0.5rem 1rem; text-decoration: none; color: #333; font-weight: 600; cursor: pointer; }
+    .nav-links li a:hover, .nav-links li span:hover { background: #e0e0e0; border-radius: 4px; transition: background 0.3s; }
+    .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); list-style: none; }
+    .dropdown-menu li a { white-space: nowrap; }
+    .nav-links li:hover .dropdown-menu { display: block; }
+
+    /* Mobile Nav */
+    .burger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .burger span { width: 25px; height: 3px; background: #333; transition: all 0.3s; }
+    @media (max-width: 768px) {
+      .nav-container { flex-wrap: wrap; }
+      .burger { display: flex; }
+      .nav-links { 
+        flex-direction: column; 
+        width: 100%; 
+        display: none; 
+      }
+      .nav-links.active { display: flex; }
+      .nav-links li { width: 100%; text-align: center; }
+      .dropdown-menu { position: static; box-shadow: none; }
     }
 
-    .sidebar-nav li.collapse>a[href^="/"]:not([href*="?id="]):not(:only-child),
-    .sidebar-nav li.collapse>a[href^="#/"]:not([href*="?id="]):not(:only-child),
-    .sidebar-nav li.active>a[href^="/"]:not([href*="?id="]):not(:only-child),
-    .sidebar-nav li.active>a[href^="#/"]:not([href*="?id="]):not(:only-child) {
-      background: transparent;
-    }
+    /* Hero Section */
+    #hero { position: relative; background: linear-gradient(270deg, #0066cc, #004999); background-size: 400% 400%; animation: gradientBG 15s ease infinite; color: #fff; text-align: center; padding: 6rem 1rem 4rem 1rem; }
+    @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+    .hero-content { position: relative; max-width: 800px; margin: 0 auto; }
+    .profile-img { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 5px solid #fff; margin: 0 auto 1rem auto; display: block; }
+    #hero h1 { font-family: 'Poppins', sans-serif; font-size: 2.5rem; margin-bottom: 0.5rem; }
+    #hero .tagline { font-size: 1.2rem; font-weight: 600; color: #e0e0e0; }
+
+    /* Sections */
+    section { padding: 4rem 1rem; margin-top: 60px; }
+    .container { max-width: 1000px; margin: 0 auto; }
+    h2 { font-family: 'Poppins', sans-serif; font-size: 1.8rem; margin-bottom: 1rem; color: #0066cc; }
+    p, li { margin-bottom: 0.75rem; }
+    ul { list-style: disc inside; }
+    
+    /* Work Experience Flip Cards */
+    .card-container { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; }
+    .flip-card { background: #fff; width: 300px; height: 280px; perspective: 1000px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    .flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s; transform-style: preserve-3d; }
+    .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
+    .flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 8px; padding: 1rem; }
+    .flip-card-front { background: #ffffff; display: flex; flex-direction: column; justify-content: center; }
+    .flip-card-front h3 { color: #333; margin-bottom: 0.5rem; }
+    .flip-card-front p { color: #555; }
+    .flip-card-back { background: #e8f0fe; color: #000; transform: rotateY(180deg); }
+    .flip-card-back ul { text-align: left; padding-left: 1rem; }
+
+    /* Skills and Tools */
+    .skills-list { display: flex; flex-wrap: wrap; gap: 2rem; }
+    .skills-list div { flex: 1 1 300px; background: #fff; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .skills-list h3 { margin-bottom: 0.5rem; color: #004999; }
+    .skills-list ul { list-style: none; }
+    .skills-list li { position: relative; padding-left: 1.2rem; }
+    .skills-list li::before { content: "•"; position: absolute; left: 0; color: #0066cc; }
+
+    /* Awards, Education, Languages */
+    .info-box { background: #fff; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .info-box ul { list-style: none; padding-left: 1.2rem; }
+    .info-box li::before { content: "✓"; color: #0066cc; padding-right: 0.5rem; }
+    .info-box p { margin-bottom: 0.5rem; }
+
+    /* Contact */
+    .contact-info a { color: #0066cc; text-decoration: none; font-weight: 600; }
+    .contact-info a:hover { text-decoration: underline; }
   </style>
 </head>
-
 <body>
-  <div id="app">Please wait...</div>
 
-  <script>
-    window.$docsify = {
-      search: [
-        '/_sidebar',
-      ],
+<nav>
+  <div class="nav-container">
+    <div class="nav-brand">Navaneeth Bethur</div>
+    <div class="burger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links">
+      <li class="dropdown"><span>Profile</span>
+        <ul class="dropdown-menu">
+          <li><a href="#summary">About</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#languages">Languages</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </li>
+      <li class="dropdown"><span>Experience</span>
+        <ul class="dropdown-menu">
+          <li><a href="#experience">Work Experience</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#awards">Awards</a></li>
+        </ul>
+      </li>
+      <li class="dropdown"><span>Skills</span>
+        <ul class="dropdown-menu">
+          <li><a href="#skills">Product Skills</a></li>
+          <li><a href="#skills">Soft Skills</a></li>
+          <li><a href="#tools">Tools</a></li>
+        </ul>
+      </li>
+      <li><a href="#summary">Summary</a></li>
+    </ul>
+  </div>
+</nav>
 
-      name: 'Awesome Github Profile Readme Templates',
-      basePath: "https://raw.githubusercontent.com/durgeshsamariya/awesome-github-profile-readme-templates/master/",
-      loadSidebar: true,
-      auto2top: true,
-      sidebarDisplayLevel: 1,
-    }
-  </script>
+<section id="hero">
+  <div class="hero-content" data-aos="fade-in">
+    <img src="profile.jpg" alt="Navaneeth Bethur - Profile Photo" class="profile-img" />
+    <h1 data-aos="fade-up">Navaneeth Bethur</h1>
+    <p class="tagline" data-aos="fade-up" data-aos-delay="150">Product Owner & Business Analyst</p>
+  </div>
+</section>
 
+<section id="summary">
+  <div class="container" data-aos="fade-up">
+    <h2>About Me</h2>
+    <p>Product-focused professional with 3+ years of experience in product management and business analysis. Skilled in Agile methodologies, backlog prioritization, and translating business needs into actionable user stories. Proven expertise in stakeholder engagement, product discovery, and delivering impactful solutions across Banking, Insurance, and HR domains.</p>
+  </div>
+</section>
 
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+<section id="experience">
+  <div class="container" data-aos="fade-up">
+    <h2>Work Experience</h2>
+    <div class="card-container">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h3>Junior Product Owner</h3>
+            <p>Tata Consultancy Services (Apr 2024 - Present)</p>
+          </div>
+          <div class="flip-card-back">
+            <ul>
+              <li>Acted as key liaison between stakeholders and development teams for Agile delivery.</li>
+              <li>Supported backlog refinement, feature prioritization, and definition of user stories.</li>
+              <li>Participated in stakeholder interviews, user research, and competitive analysis.</li>
+              <li>Coordinated with design, QA, and engineering teams to drive sprint progress.</li>
+              <li>Led end-to-end product discovery and MVP development, ensuring business alignment.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h3>Business Analyst</h3>
+            <p>Tata Consultancy Services (Nov 2021 - Mar 2024)</p>
+          </div>
+          <div class="flip-card-back">
+            <ul>
+              <li>Gathered and analyzed detailed business requirements; documented use cases and user stories.</li>
+              <li>Collaborated with architects, developers, and UX designers on workflow design.</li>
+              <li>Wrote clear user stories and acceptance criteria; prioritized backlog items.</li>
+              <li>Facilitated Agile ceremonies including sprint planning, retrospectives, and backlog grooming.</li>
+              <li>Coordinated cross-functional teams to remove blockers and ensure timely sprint execution.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- plugins -->
-  <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@3/dist/docsify-themeable/main.min.js"
-    type="text/javascript">
-    </script>
-  <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@3/dist/docsify-themeable/index.min.js"
-    type="text/javascript">
-    </script>
-  <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+<section id="skills">
+  <div class="container" data-aos="fade-up">
+    <h2>Skills</h2>
+    <div class="skills-list">
+      <div>
+        <h3>Product Skills</h3>
+        <ul>
+          <li>Backlog Management</li>
+          <li>Roadmap Support</li>
+          <li>User Story Writing</li>
+          <li>UAT Coordination</li>
+          <li>Product Discovery</li>
+          <li>Agile/Scrum</li>
+          <li>Wireframing (Balsamiq)</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Soft Skills</h3>
+        <ul>
+          <li>Stakeholder Engagement</li>
+          <li>Problem-Solving</li>
+          <li>Strategic Decision-Making</li>
+          <li>Cross-Functional Collaboration</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tools">
+  <div class="container" data-aos="fade-up">
+    <h2>Tools</h2>
+    <div class="skills-list">
+      <div>
+        <h3>Tools & Technologies</h3>
+        <ul>
+          <li>JIRA</li>
+          <li>Confluence</li>
+          <li>Excel</li>
+          <li>ETL Informatica</li>
+          <li>Microsoft Word</li>
+          <li>BRD/FRD</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="container" data-aos="fade-up">
+    <h2>Certifications</h2>
+    <div class="card-container">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h3>Google Associate<br>Cloud Engineer</h3>
+          </div>
+          <div class="flip-card-back">
+            <p>Obtained professional cloud engineering certification from Google, validating skills in cloud infrastructure and services.</p>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h3>Udemy Product<br>Management Fundamentals</h3>
+          </div>
+          <div class="flip-card-back">
+            <p>Completed comprehensive training on product management principles, agile product development, and stakeholder engagement strategies.</p>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h3>Udemy Product Owner<br>Certification</h3>
+          </div>
+          <div class="flip-card-back">
+            <p>Certified in product owner responsibilities and agile methodologies, focusing on managing product backlogs and delivering value.</p>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h3>Udemy JIRA<br>Certified</h3>
+          </div>
+          <div class="flip-card-back">
+            <p>Demonstrated expertise in using JIRA for project tracking, backlog management, and Agile workflow management.</p>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h3>PMI: Business<br>Analysis Foundations</h3>
+          </div>
+          <div class="flip-card-back">
+            <p>Earned foundational certification in business analysis, emphasizing requirements elicitation, documentation, and stakeholder communication.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="awards">
+  <div class="container" data-aos="fade-up">
+    <h2>Awards & Recognition</h2>
+    <div class="info-box">
+      <ul>
+        <li>2x On the Spot Award</li>
+        <li>Service Commitment Award</li>
+        <li>Beyond Performance Award</li>
+        <li>Award for Excellence</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="container" data-aos="fade-up">
+    <h2>Education</h2>
+    <div class="info-box">
+      <p><strong>Bachelor of Technology in Computer Science and Engineering</strong><br>
+      Gopalan College of Engineering, Bangalore, Karnataka</p>
+    </div>
+  </div>
+</section>
+
+<section id="languages">
+  <div class="container" data-aos="fade-up">
+    <h2>Languages</h2>
+    <div class="info-box">
+      <p>English, Malayalam, Kannada, Hindi, Tamil, Telugu</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container" data-aos="fade-up">
+    <h2>Contact</h2>
+    <div class="info-box contact-info">
+      <p>Phone: <a href="tel:9741689860">+91 97416 89860</a></p>
+      <p>Email: <a href="mailto:navaneethb27@gmail.com">navaneethb27@gmail.com</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- AOS JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  // Initialize AOS
+  AOS.init();
+  // Mobile nav toggle
+  function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('active');
+  }
+</script>
 </body>
-
 </html>
