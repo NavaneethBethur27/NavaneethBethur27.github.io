@@ -1,225 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Navaneeth Bethur • Portfolio</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+  <meta name="description" content="Awesome GitHub Profile Readme Templates" />
+  <title>Awesome GitHub Profile Readme Templates</title>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar-folder.min.css" />
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Slab:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@3/dist/docsify-themeable/style.min.css"
+    type="text/css">
+
+  <!-- docsify-themeable styles-->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css" title="light">
+  <link rel="stylesheet alternative" href="//cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css"
+    title="dark">
 
   <style>
-    /* —— Global reset & fonts —— */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Roboto', sans-serif; background: #f4f4f4; color: #333; }
-
-    /* —— Main container with border like your resume —— */
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
-      background: #fff;
-      border: 4px solid #004E89;
-      border-radius: 10px;
+    .sidebar-nav li>a[href^="/"]:not([href*="?id="]),
+    .sidebar-nav li>a[href^="/"]:not([href*="?id="])~ul a,
+    .sidebar-nav li>a[href^="#/"]:not([href*="?id="]),
+    .sidebar-nav li>a[href^="#/"]:not([href*="?id="])~ul a {
+      padding: 0;
     }
 
-    /* —— Header —— */
-    header { text-align: center; margin-bottom: 30px; }
-    header h1 { font-family: 'Roboto Slab', serif; font-size: 2.4rem; color: #004E89; }
-    header p { color: #555; font-size: 1rem; }
-
-    /* —— Profile row —— */
-    .profile { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-bottom: 30px; }
-    .profile img {
-      width: 140px; height: 140px;
-      border-radius: 50%;
-      border: 3px solid #004E89;
-      object-fit: cover;
-    }
-    .profile .intro { flex: 1; }
-    .profile .intro h2 { font-size: 1.5rem; color: #0A2342; margin-bottom: 8px; }
-    .profile .intro p { line-height: 1.4; margin-bottom: 4px; }
-
-    /* —— Section titles —— */
-    h2.section-title {
-      font-family: 'Roboto Slab', serif;
-      font-size: 1.6rem;
-      color: #004E89;
-      margin: 20px 0 10px;
-      border-bottom: 2px solid #004E89;
-      display: inline-block;
-    }
-
-    /* —— Sections —— */
-    .section { margin-bottom: 20px; }
-    .section p, .section li { line-height: 1.5; margin-bottom: 6px; }
-    .section ul { list-style-type: disc; padding-left: 20px; }
-
-    /* —— Two-column grid for Skills/Certs/Awards —— */
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-
-    /* —— Flip-card —— */
-    .flip-card {
+    .sidebar-nav li.collapse>a[href^="/"]:not([href*="?id="]):not(:only-child),
+    .sidebar-nav li.collapse>a[href^="#/"]:not([href*="?id="]):not(:only-child),
+    .sidebar-nav li.active>a[href^="/"]:not([href*="?id="]):not(:only-child),
+    .sidebar-nav li.active>a[href^="#/"]:not([href*="?id="]):not(:only-child) {
       background: transparent;
-      width: 280px; height: 160px;
-      perspective: 1000px;
-      margin: 10px auto;
     }
-    .flip-card-inner {
-      position: relative;
-      width: 100%; height: 100%;
-      text-align: center;
-      transition: transform 0.6s;
-      transform-style: preserve-3d;
-    }
-    .flip-card:hover .flip-card-inner {
-      transform: rotateY(180deg);
-    }
-    .flip-card-front,
-    .flip-card-back {
-      position: absolute; width: 100%; height: 100%;
-      backface-visibility: hidden;
-      border: 1px solid #004E89; border-radius: 6px;
-      display: flex; align-items: center; justify-content: center;
-      padding: 10px; box-sizing: border-box;
-    }
-    .flip-card-front { background: #fff; color: #004E89; }
-    .flip-card-back {
-      background: #004E89; color: #fff;
-      transform: rotateY(180deg);
-    }
-
-    /* —— Reveal on scroll —— */
-    .reveal { opacity: 0; transform: translateY(50px); transition: 0.6s ease-out; }
-    .reveal.active { opacity: 1; transform: translateY(0); }
-
-    /* —— Footer —— */
-    footer { text-align: center; margin-top: 30px; font-size: 0.9rem; color: #777; }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <!-- HEADER -->
-    <header>
-      <h1>Navaneeth Bethur</h1>
-      <p>Product Owner & Business Analyst</p>
-    </header>
+  <div id="app">Please wait...</div>
 
-    <!-- PROFILE ROW -->
-    <div class="profile reveal">
-      <img src="profile.jpg" alt="Navaneeth Bethur">
-      <div class="intro">
-        <h2>Contact</h2>
-        <p>📞 9741689860</p>
-        <p>✉️ <a href="mailto:navaneethb27@gmail.com">navaneethb27@gmail.com</a></p>
-      </div>
-    </div>
-
-    <!-- PROFESSIONAL SUMMARY -->
-    <div class="section reveal">
-      <h2 class="section-title">Professional Summary</h2>
-      <p>Product-focused professional with 3+ years’ experience in Agile product management & business analysis. Skilled in backlog prioritization, stakeholder engagement & delivering impactful solutions.</p>
-    </div>
-
-    <!-- WORK EXPERIENCE with one flip-card -->
-    <div class="section reveal">
-      <h2 class="section-title">Work Experience</h2>
-
-      <!-- Flip-card for your current role -->
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <div>
-              <strong>Junior Product Owner</strong><br>
-              Tata Consultancy Services<br>
-              Apr 2024 – Present
-            </div>
-          </div>
-          <div class="flip-card-back">
-            <div>
-              • Liaised between stakeholders & dev team<br>
-              • Refined backlog & defined user stories<br>
-              • Supported sprint planning & UAT
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Plain list for earlier role -->
-      <ul>
-        <li><strong>Business Analyst</strong>, TCS (Nov 2021 – Mar 2024)
-          <ul>
-            <li>Gathered requirements, documented user stories & use cases</li>
-            <li>Facilitated Agile ceremonies & UAT</li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-
-    <!-- SKILLS & TOOLS -->
-    <div class="section two-col reveal">
-      <div>
-        <h2 class="section-title">Product Skills</h2>
-        <ul>
-          <li>Backlog Management</li>
-          <li>Roadmapping</li>
-          <li>User Story Writing</li>
-          <li>UAT Coordination</li>
-          <li>Product Discovery</li>
-        </ul>
-      </div>
-      <div>
-        <h2 class="section-title">Tools & Soft Skills</h2>
-        <ul>
-          <li>JIRA, Confluence, Excel</li>
-          <li>Stakeholder Engagement</li>
-          <li>Agile/Scrum</li>
-          <li>Problem-Solving</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- EDUCATION -->
-    <div class="section reveal">
-      <h2 class="section-title">Education</h2>
-      <p><strong>B.Tech, Computer Science & Engineering</strong><br>
-         Gopalan College of Engineering, Bangalore</p>
-    </div>
-
-    <!-- CERTIFICATIONS & AWARDS -->
-    <div class="section two-col reveal">
-      <div>
-        <h2 class="section-title">Certifications</h2>
-        <ul>
-          <li>Google Associate Cloud Engineer</li>
-          <li>Udemy Product Management Fundamentals</li>
-          <li>Udemy Product Owner Certification</li>
-        </ul>
-      </div>
-      <div>
-        <h2 class="section-title">Awards</h2>
-        <ul>
-          <li>On the Spot Award (×2)</li>
-          <li>Service Commitment Award</li>
-        </ul>
-      </div>
-    </div>
-
-    <footer>
-      &copy; 2025 Navaneeth Bethur. All rights reserved.
-    </footer>
-  </div>
-
-  <!-- Reveal-on-scroll script -->
   <script>
-    window.addEventListener('scroll', () => {
-      document.querySelectorAll('.reveal').forEach(el => {
-        if (el.getBoundingClientRect().top < window.innerHeight - 100) {
-          el.classList.add('active');
-        }
-      });
-    });
+    window.$docsify = {
+      search: [
+        '/_sidebar',
+      ],
+
+      name: 'Awesome Github Profile Readme Templates',
+      basePath: "https://raw.githubusercontent.com/durgeshsamariya/awesome-github-profile-readme-templates/master/",
+      loadSidebar: true,
+      auto2top: true,
+      sidebarDisplayLevel: 1,
+    }
   </script>
+
+
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+
+  <!-- plugins -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@3/dist/docsify-themeable/main.min.js"
+    type="text/javascript">
+    </script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@3/dist/docsify-themeable/index.min.js"
+    type="text/javascript">
+    </script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
 </body>
+
 </html>
