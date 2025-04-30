@@ -1,52 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Navaneeth Bethur</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Navaneeth Bethur – Business Analyst</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;500;700&display=swap" rel="stylesheet">
 <style>
-body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f0f8ff; }
-.section { padding: 40px; text-align: center; }
-.intro { background: #ffebcd; }
-.hobbies { background: #e6e6fa; }
-.experience { background: #ffe4e1; }
-.dream { background: #fafad2; }
-h1, h2 { margin-bottom: 20px; }
-p, li { font-size: 1.1em; line-height: 1.4; }
-ul { list-style: none; padding: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+font-family: 'Raleway', sans-serif;
+color: #333;
+line-height: 1.6;
+}
+header {
+background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+color: white;
+padding: 60px 20px;
+text-align: center;
+}
+header h1 { font-size: 2.8em; margin-bottom: 10px; }
+header p { font-size: 1.2em; }
+nav {
+position: sticky;
+top: 0;
+background: white;
+box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+z-index: 100;
+}
+nav ul {
+display: flex;
+justify-content: center;
+list-style: none;
+padding: 10px 0;
+}
+nav li {
+margin: 0 15px;
+}
+nav a {
+text-decoration: none;
+color: #555;
+font-weight: 500;
+}
+nav a:hover { color: #4facfe; }
+
+.section {
+padding: 60px 20px;
+max-width: 800px;
+margin: auto;
+}
+.section:nth-child(even) { background: #f9f9f9; }
+.section h2 {
+font-size: 2em;
+margin-bottom: 20px;
+color: #4facfe;
+text-align: center;
+}
+.section p, .section li {
+margin-bottom: 12px;
+}
+.section ul { list-style: none; padding-left: 0; }
+.section ul li::before {
+content: '•';
+color: #4facfe;
+display: inline-block;
+width: 1em;
+}
+.contact {
+text-align: center;
+margin-top: 20px;
+}
+.contact a {
+color: #333;
+text-decoration: none;
+margin: 0 10px;
+font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+header h1 { font-size: 2.2em; }
+.section { padding: 40px 15px; }
+}
 </style>
 </head>
 <body>
-<div class="section intro">
-<h1>Hi, I’m Navaneeth Bethur</h1>
-<p>I’m a passionate software engineer from Bengaluru, India. I build web apps that people love!</p>
-</div>
-<div class="section hobbies">
-<h2>My Hobbies</h2>
+
+<!-- Navigation -->
+<nav>
 <ul>
-<li>🎸 Playing guitar</li>
-<li>📸 Nature photography</li>
-<li>🚴 Cycling</li>
+<li><a href="#summary">Summary</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#certifications">Certifications</a></li>
+<li><a href="#awards">Awards</a></li>
 </ul>
+</nav>
+
+<!-- Header / Intro -->
+<header>
+<h1>Navaneeth Bethur</h1>
+<p>Product-focused Professional | Business Analyst | Junior Product Owner</p>
+<div class="contact">
+<a href="tel:+919741689860">📞 +91 97416 89860</a> |
+<a href="mailto:navaneethb27@gmail.com">✉️ navaneethb27@gmail.com</a>
 </div>
-<div class="section experience">
+</header>
+
+<!-- Professional Summary -->
+<section id="summary" class="section">
+<h2>Professional Summary</h2>
+<p>Product-focused professional with 3+ years of experience in product management and business analysis. Skilled in Agile methodologies, backlog prioritization, and translating business needs into actionable user stories. Proven expertise in stakeholder engagement, product discovery, and delivering impactful solutions across Banking, Insurance, and HR domains.</p>
+</section>
+
+<!-- Work Experience -->
+<section id="experience" class="section">
 <h2>Work Experience</h2>
 <ul>
-<li><strong>Business Analyst, TCS (Jan 2023–Present)</strong><br>
-• Gathered requirements and managed backlog.<br>
-• Created user stories and performed UAT.<br>
-• Collaborated with devs & testers.
-</li><br>
-<li><strong>Junior BA, TCS (Nov 2021–Dec 2022)</strong><br>
-• Assisted in requirement gathering.<br>
-• Conducted gap analysis and traceability.<br>
-• Supported UAT cycles.
+<li>
+<strong>Junior Product Owner, Tata Consultancy Services</strong> <em>(Apr 2024 – Present)</em><br>
+• Liaise between business stakeholders and dev teams<br>
+• Support backlog refinement & user story creation<br>
+• Drive product discovery: interviews, research, analysis<br>
+• Coordinate sprint ceremonies & UAT coordination
+</li>
+<li>
+<strong>Business Analyst, Tata Consultancy Services</strong> <em>(Nov 2021 – Mar 2024)</em><br>
+• Gathered and analyzed detailed requirements<br>
+• Wrote clear user stories & acceptance criteria<br>
+• Facilitated Agile rituals: planning, retrospectives, grooming<br>
+• Conducted gap analysis and produced BRDs & FRDs
 </li>
 </ul>
-</div>
-<div class="section dream">
-<h2>My Dream</h2>
-<p>I aspire to launch my own tech startup that uses AI to make education accessible for all children worldwide.</p>
-</div>
+</section>
+
+<!-- Skills -->
+<section id="skills" class="section">
+<h2>Skills & Tools</h2>
+<ul>
+<li>Backlog Management & Roadmap Support</li>
+<li>User Story Writing & UAT Coordination</li>
+<li>Product Discovery & Agile/Scrum</li>
+<li>Wireframing (Balsamiq)</li>
+<li>JIRA, Confluence, Excel, BRD/FRD, ETL Informatica</li>
+<li>Stakeholder Engagement & Cross-Functional Collaboration</li>
+</ul>
+</section>
+
+<!-- Education -->
+<section id="education" class="section">
+<h2>Education</h2>
+<p><strong>B.Tech in Computer Science & Engineering</strong><br>
+Gopalan College of Engineering, Bangalore, Karnataka</p>
+</section>
+
+<!-- Certifications -->
+<section id="certifications" class="section">
+<h2>Certifications & Training</h2>
+<ul>
+<li>Google Associate Cloud Engineer</li>
+<li>Udemy Product Management Fundamentals</li>
+<li>Udemy Product Owner Certification Training</li>
+<li>Udemy JIRA Certified</li>
+<li>PMI: Business Analysis Foundations</li>
+</ul>
+</section>
+
+<!-- Awards -->
+<section id="awards" class="section">
+<h2>Awards & Recognition</h2>
+<ul>
+<li>2× On the Spot Award</li>
+<li>Service Commitment Award</li>
+<li>Beyond Performance Award</li>
+<li>Award for Excellence</li>
+</ul>
+</section>
+
 </body>
 </html>
