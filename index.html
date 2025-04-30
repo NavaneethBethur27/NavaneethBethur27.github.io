@@ -6,217 +6,141 @@
   <title>Navaneeth Bethur Portfolio</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Slab:wght@600&display=swap" rel="stylesheet">
 
-  <!-- All your CSS lives inside this <style> tag -->
   <style>
-    /* —— Global reset & font —— */
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Roboto', sans-serif;
-      background-color: #F4F4F4;
-      color: #333;
-    }
+    /* Global Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Roboto', sans-serif; background: #f4f4f4; color: #333; }
 
-    /* —— Header / Hero —— */
-    header {
-      background-color: #004E89;
-      color: white;
-      text-align: center;
-      padding: 60px 20px;
-    }
-    header h1 {
-      margin: 0 0 10px;
-      font-size: 2.5rem;
-    }
-    .typing {
-      display: inline-block;
-      width: 0;
-      overflow: hidden;
-      white-space: nowrap;
-      border-right: 2px solid #fff;
-      animation: typing 3s steps(30) forwards, blink 0.75s step-end infinite;
-    }
-    @keyframes typing { from { width: 0; } to { width: 20ch; } }
-    @keyframes blink { 50% { border-color: transparent; } }
+    /* Container */n    .container { max-width: 900px; margin: 40px auto; padding: 20px; background: #fff; border: 4px solid #004E89; border-radius: 10px; }
 
-    /* —— Reveal on scroll —— */
-    .reveal {
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    /* Header */
+    header { text-align: center; margin-bottom: 30px; }
+    header h1 { font-family: 'Roboto Slab', serif; font-size: 2.4rem; color: #004E89; }
+    header p { font-size: 1rem; color: #555; }
 
-    /* —— Profile row: avatar + intro —— */
-    #profile-row {
-      padding: 40px 20px;
-    }
-    .profile-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-    .avatar img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 4px solid #004E89;
-    }
-    .intro {
-      max-width: 400px;
-      text-align: left;
-    }
-    .intro h2 {
-      margin-bottom: 10px;
-      color: #004E89;
-    }
-    .intro p {
-      margin: 5px 0;
-      line-height: 1.4;
-    }
-    @media (max-width: 600px) {
-      .profile-container {
-        flex-direction: column;
-      }
-      .avatar img {
-        width: 120px;
-        height: 120px;
-      }
-    }
+    /* Profile Row */
+    .profile { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-bottom: 30px; }
+    .profile img { width: 120px; height: 120px; border-radius: 50%; border: 3px solid #004E89; }
+    .profile .intro { flex: 1; }
+    .profile .intro h2 { font-size: 1.5rem; color: #0A2342; margin-bottom: 10px; }
 
-    /* —— Section styling —— */
-    section {
-      padding: 40px 20px;
-      text-align: center;
-    }
-    section h2 {
-      margin-bottom: 20px;
-      color: #0A2342;
-    }
+    /* Section Titles */
+    h2.section-title { font-family: 'Roboto Slab', serif; font-size: 1.6rem; color: #004E89; margin: 20px 0 10px; border-bottom: 2px solid #004E89; display: inline-block; }
 
-    /* —— Flip‐card for Experience —— */
-    .flip-card {
-      background: transparent;
-      width: 300px;
-      height: 200px;
-      perspective: 1000px;
-      margin: 0 auto 20px;
-    }
-    .flip-card-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      text-align: center;
-      transition: transform 0.8s;
-      transform-style: preserve-3d;
-    }
-    .flip-card:hover .flip-card-inner {
-      transform: rotateY(180deg);
-    }
-    .flip-card-front,
-    .flip-card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-    .flip-card-front {
-      background-color: #2A9D8F;
-      color: white;
-    }
-    .flip-card-back {
-      background-color: #F95738;
-      color: white;
-      transform: rotateY(180deg);
-    }
+    /* Resume Sections */
+    .section { margin-bottom: 20px; }
+    .section p, .section li { line-height: 1.5; margin-bottom: 8px; }
+    .section ul { list-style-type: disc; padding-left: 20px; }
+
+    /* Two-column lists */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+    /* Footer */
+    footer { text-align: center; margin-top: 30px; font-size: 0.9rem; color: #777; }
   </style>
 </head>
 
 <body>
-  <!-- ===== HEADER / HERO ===== -->
-  <header id="hero">
-    <h1>Navaneeth Bethur</h1>
-    <h2><span class="typing">Business Analyst</span></h2>
-  </header>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <h1>Navaneeth Bethur</h1>
+      <p>Product Owner & Business Analyst</p>
+    </header>
 
-  <!-- ===== PROFILE ROW ===== -->
-  <section id="profile-row" class="reveal">
-    <div class="profile-container">
-      <div class="avatar">
-        <img src="https://avatars.githubusercontent.com/navaneethbethur27" alt="Navaneeth avatar">
-      </div>
+    <!-- Profile Row -->
+    <div class="profile">
+      <img src="https://avatars.githubusercontent.com/navaneethbethur27" alt="Navaneeth Avatar">
       <div class="intro">
-        <h2>Hey! I’m Navaneeth.</h2>
-        <p>👋 I’m a Business Analyst.<br>
-           🎯 I build data-driven products.<br>
-           💡 Passionate about Agile, Product, and solving tough problems.</p>
-        <p>🔭 Currently at TCS.<br>
-           🌱 Learning advanced analytics & AI.<br>
-           📫 navaneethbethur27@gmail.com.com</p>
+        <h2>Contact</h2>
+        <p>Ph: 9741689860<br>Email: <a href="mailto:navaneethb27@gmail.com">navaneethb27@gmail.com</a></p>
       </div>
     </div>
-  </section>
 
-  <!-- ===== SUMMARY ===== -->
-  <section id="summary" class="reveal">
-    <h2>Summary</h2>
-    <p>Experienced in defining product vision, gathering requirements, and delivering value-driven solutions.</p>
-  </section>
+    <!-- Professional Summary -->
+    <div class="section">
+      <h2 class="section-title">Professional Summary</h2>
+      <p>Product-focused professional with 3+ years of experience in product management and business analysis. Skilled in Agile methodologies, backlog prioritization, and translating business needs into actionable user stories. Proven expertise in stakeholder engagement, product discovery, and delivering impactful solutions across Banking, Insurance, and HR domains.</p>
+    </div>
 
-  <!-- ===== EXPERIENCE (Flip‐Card) ===== -->
-  <section id="experience" class="reveal">
-    <h2>Work Experience</h2>
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <div>
-            <h3>Senior BA, XYZ Corp</h3>
-            <p>Jan 2020 – Present</p>
-          </div>
-        </div>
-        <div class="flip-card-back">
-          <div>
-            <p>Led cross-functional teams to deliver Agile software products and improve processes.</p>
-          </div>
-        </div>
+    <!-- Work Experience -->
+    <div class="section">
+      <h2 class="section-title">Work Experience</h2>
+      <ul>
+        <li><strong>Junior Product Owner</strong>, Tata Consultancy Services Limited (Apr 2024 – Present)
+          <ul>
+            <li>Functioned as a Junior Product Owner within my Business Analyst role, acting as the key liaison between business stakeholders and development teams.</li>
+            <li>Supported backlog refinement, feature prioritization, and user story definition to align with business goals.</li>
+          </ul>
+        </li>
+        <li><strong>Business Analyst</strong>, Tata Consultancy Services Limited (Nov 2021 – Mar 2024)
+          <ul>
+            <li>Gathered and analyzed business requirements, defined project scope, and documented use cases and user stories.</li>
+            <li>Facilitated Agile ceremonies and supported UAT to ensure deliverables met business expectations.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Skills & Tools -->
+    <div class="section two-col">
+      <div>
+        <h2 class="section-title">Product Skills</h2>
+        <ul>
+          <li>Backlog Management</li>
+          <li>Roadmap Support</li>
+          <li>User Story Writing</li>
+          <li>UAT Coordination</li>
+          <li>Product Discovery</li>
+          <li>Agile/Scrum</li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="section-title">Tools & Soft Skills</h2>
+        <ul>
+          <li>JIRA, Confluence, Excel, ETL Informatica</li>
+          <li>Stakeholder Engagement</li>
+          <li>Problem-Solving</li>
+          <li>Strategic Decision-Making</li>
+          <li>Cross-Functional Collaboration</li>
+        </ul>
       </div>
     </div>
-  </section>
 
-  <!-- ===== SKILLS ===== -->
-  <section id="skills" class="reveal">
-    <h2>Skills</h2>
-    <p>Agile · Scrum · JIRA · Confluence · Roadmapping · Stakeholder Management</p>
-  </section>
+    <!-- Education -->
+    <div class="section">
+      <h2 class="section-title">Education</h2>
+      <p><strong>B.Tech in Computer Science and Engineering</strong><br>Gopalan College Of Engineering, Bangalore, Karnataka</p>
+    </div>
 
-  <!-- ===== CONTACT ===== -->
-  <section id="contact" class="reveal">
-    <h2>Contact Me</h2>
-    <p>Email: navaneeth.bethur@example.com</p>
-    <p>LinkedIn: linkedin.com/in/navaneethbethur</p>
-  </section>
+    <!-- Certifications & Awards -->
+    <div class="section two-col">
+      <div>
+        <h2 class="section-title">Certifications</h2>
+        <ul>
+          <li>Google Associate Cloud Engineer</li>
+          <li>Udemy Product Management Fundamentals</li>
+          <li>Udemy Product Owner Certification</li>
+          <li>Udemy JIRA Certified</li>
+          <li>PMI: Business Analysis Foundations</li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="section-title">Awards</h2>
+        <ul>
+          <li>2x On the Spot Award</li>
+          <li>Service Commitment Award</li>
+          <li>Beyond Performance Award</li>
+          <li>Award for Excellence</li>
+        </ul>
+      </div>
+    </div>
 
-  <!-- ===== Reveal‐on‐scroll script ===== -->
-  <script>
-    window.addEventListener('scroll', () => {
-      document.querySelectorAll('.reveal').forEach(el => {
-        if (el.getBoundingClientRect().top < window.innerHeight - 100) {
-          el.classList.add('active');
-        }
-      });
-    });
-  </script>
+    <footer>
+      &copy; 2025 Navaneeth Bethur. All rights reserved.
+    </footer>
+  </div>
 </body>
 </html>
