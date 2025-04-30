@@ -1,345 +1,396 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Navaneeth Bethur - Portfolio</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <!-- AOS Animate on Scroll -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-Ho8dN80rLtkPJhTcmdqPT+ZHe0W9mft/wXXpouKt9kO0gN7XbnCRZbMtVIpmdIc/rPMHmU9Pe6bAZejg0aM/Rg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <style>
-    /* Basic Reset */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Open Sans', sans-serif; line-height: 1.6; color: #333; background: #f9f9f9; }
-
-    /* Navbar */
-    nav { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 1000; }
-    .nav-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 1rem; }
-    .nav-brand { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.2rem; color: #0066cc; }
-    .nav-links { list-style: none; display: flex; align-items: center; }
-    .nav-links li { position: relative; }
-    .nav-links li a, .nav-links li span { display: block; padding: 0.5rem 1rem; text-decoration: none; color: #333; font-weight: 600; cursor: pointer; }
-    .nav-links li a:hover, .nav-links li span:hover { background: #e0e0e0; border-radius: 4px; transition: background 0.3s; }
-    .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); list-style: none; }
-    .dropdown-menu li a { white-space: nowrap; }
-    .nav-links li:hover .dropdown-menu { display: block; }
-
-    /* Mobile Nav */
-    .burger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
-    .burger span { width: 25px; height: 3px; background: #333; transition: all 0.3s; }
-    @media (max-width: 768px) {
-      .nav-container { flex-wrap: wrap; }
-      .burger { display: flex; }
-      .nav-links { 
-        flex-direction: column; 
-        width: 100%; 
-        display: none; 
-      }
-      .nav-links.active { display: flex; }
-      .nav-links li { width: 100%; text-align: center; }
-      .dropdown-menu { position: static; box-shadow: none; }
-    }
-
-    /* Hero Section */
-    #hero { position: relative; background: linear-gradient(270deg, #0066cc, #004999); background-size: 400% 400%; animation: gradientBG 15s ease infinite; color: #fff; text-align: center; padding: 6rem 1rem 4rem 1rem; }
-    @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-    .hero-content { position: relative; max-width: 800px; margin: 0 auto; }
-    .profile-img { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 5px solid #fff; margin: 0 auto 1rem auto; display: block; }
-    #hero h1 { font-family: 'Poppins', sans-serif; font-size: 2.5rem; margin-bottom: 0.5rem; }
-    #hero .tagline { font-size: 1.2rem; font-weight: 600; color: #e0e0e0; }
-
-    /* Sections */
-    section { padding: 4rem 1rem; margin-top: 60px; }
-    .container { max-width: 1000px; margin: 0 auto; }
-    h2 { font-family: 'Poppins', sans-serif; font-size: 1.8rem; margin-bottom: 1rem; color: #0066cc; }
-    p, li { margin-bottom: 0.75rem; }
-    ul { list-style: disc inside; }
-    
-    /* Work Experience Flip Cards */
-    .card-container { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; }
-    .flip-card { background: #fff; width: 300px; height: 280px; perspective: 1000px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-    .flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s; transform-style: preserve-3d; }
-    .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
-    .flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 8px; padding: 1rem; }
-    .flip-card-front { background: #ffffff; display: flex; flex-direction: column; justify-content: center; }
-    .flip-card-front h3 { color: #333; margin-bottom: 0.5rem; }
-    .flip-card-front p { color: #555; }
-    .flip-card-back { background: #e8f0fe; color: #000; transform: rotateY(180deg); }
-    .flip-card-back ul { text-align: left; padding-left: 1rem; }
-
-    /* Skills and Tools */
-    .skills-list { display: flex; flex-wrap: wrap; gap: 2rem; }
-    .skills-list div { flex: 1 1 300px; background: #fff; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    .skills-list h3 { margin-bottom: 0.5rem; color: #004999; }
-    .skills-list ul { list-style: none; }
-    .skills-list li { position: relative; padding-left: 1.2rem; }
-    .skills-list li::before { content: "•"; position: absolute; left: 0; color: #0066cc; }
-
-    /* Awards, Education, Languages */
-    .info-box { background: #fff; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    .info-box ul { list-style: none; padding-left: 1.2rem; }
-    .info-box li::before { content: "✓"; color: #0066cc; padding-right: 0.5rem; }
-    .info-box p { margin-bottom: 0.5rem; }
-
-    /* Contact */
-    .contact-info a { color: #0066cc; text-decoration: none; font-weight: 600; }
-    .contact-info a:hover { text-decoration: underline; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navaneeth Bethur - Portfolio</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+        /* Navbar */
+        nav {
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: background-color 0.3s;
+        }
+        .navbar-brand {
+            font-weight: 600;
+        }
+        .nav-link {
+            color: #333 !important;
+            font-weight: 500;
+            margin-right: 15px;
+        }
+        .nav-link:hover {
+            color: #007bff !important;
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+            margin-top: 0;
+        }
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: url('style2.png') center/cover no-repeat;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 0;
+        }
+        .hero p {
+            font-size: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        /* Sections */
+        section {
+            padding: 60px 15px;
+            scroll-margin-top: 70px;
+        }
+        h2.section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+        /* About */
+        #about .profile-img {
+            max-width: 200px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        /* Skills and Tools */
+        .skills-list, .tools-list {
+            list-style: none;
+            padding: 0;
+        }
+        .skills-list li, .tools-list li {
+            margin-bottom: 8px;
+        }
+        /* Flip cards for Certifications */
+        .flip-card {
+            background-color: transparent;
+            width: 250px;
+            height: 150px;
+            perspective: 1000px;
+            margin: 15px;
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%; height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%; height: 100%;
+            backface-visibility: hidden;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+        .flip-card-front {
+            background-color: #007bff;
+            color: white;
+        }
+        .flip-card-back {
+            background-color: #fff;
+            color: #333;
+            transform: rotateY(180deg);
+        }
+        /* Work Experience cards */
+        .exp-card {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .exp-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        /* Contact */
+        .contact-info i {
+            margin-right: 10px;
+            color: #007bff;
+        }
+        /* Responsive */
+        @media (max-width: 767px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.2rem; }
+        }
+    </style>
 </head>
 <body>
 
-<nav>
-  <div class="nav-container">
-    <div class="nav-brand">Navaneeth Bethur</div>
-    <div class="burger" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </div>
-    <ul class="nav-links">
-      <li class="dropdown"><span>Profile</span>
-        <ul class="dropdown-menu">
-          <li><a href="#summary">About</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#languages">Languages</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </li>
-      <li class="dropdown"><span>Experience</span>
-        <ul class="dropdown-menu">
-          <li><a href="#experience">Work Experience</a></li>
-          <li><a href="#certifications">Certifications</a></li>
-          <li><a href="#awards">Awards</a></li>
-        </ul>
-      </li>
-      <li class="dropdown"><span>Skills</span>
-        <ul class="dropdown-menu">
-          <li><a href="#skills">Product Skills</a></li>
-          <li><a href="#skills">Soft Skills</a></li>
-          <li><a href="#tools">Tools</a></li>
-        </ul>
-      </li>
-      <li><a href="#summary">Summary</a></li>
-    </ul>
-  </div>
-</nav>
-
-<section id="hero">
-  <div class="hero-content" data-aos="fade-in">
-    <img src="profile.jpg" alt="Navaneeth Bethur - Profile Photo" class="profile-img" />
-    <h1 data-aos="fade-up">Navaneeth Bethur</h1>
-    <p class="tagline" data-aos="fade-up" data-aos-delay="150">Business Analyst</p>
-  </div>
-</section>
-
-<section id="summary">
-  <div class="container" data-aos="fade-up">
-    <h2>About Me</h2>
-    <p>Product-focused professional with 3+ years of experience in product management and business analysis. Skilled in Agile methodologies, backlog prioritization, and translating business needs into actionable user stories. Proven expertise in stakeholder engagement, product discovery, and delivering impactful solutions across Banking, Insurance, and HR domains.</p>
-  </div>
-</section>
-
-<section id="experience">
-  <div class="container" data-aos="fade-up">
-    <h2>Work Experience</h2>
-    <div class="card-container">
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <h3>Junior Product Owner</h3>
-            <p>Tata Consultancy Services (Apr 2024 - Present)</p>
-          </div>
-          <div class="flip-card-back">
-            <ul>
-              <li>Acted as key liaison between stakeholders and development teams for Agile delivery.</li>
-              <li>Supported backlog refinement, feature prioritization, and definition of user stories.</li>
-              <li>Participated in stakeholder interviews, user research, and competitive analysis.</li>
-              <li>Coordinated with design, QA, and engineering teams to drive sprint progress.</li>
-              <li>Led end-to-end product discovery and MVP development, ensuring business alignment.</li>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
+    <a class="navbar-brand" href="#">NB</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#skills" id="skillsDropdown" role="button">Skills</a>
+            <ul class="dropdown-menu" aria-labelledby="skillsDropdown">
+                <li><a class="dropdown-item" href="#skills">Product Skills</a></li>
+                <li><a class="dropdown-item" href="#skills">Soft Skills</a></li>
             </ul>
-          </div>
-        </div>
-      </div>
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <h3>Business Analyst</h3>
-            <p>Tata Consultancy Services (Nov 2021 - Mar 2024)</p>
-          </div>
-          <div class="flip-card-back">
-            <ul>
-              <li>Gathered and analyzed detailed business requirements; documented use cases and user stories.</li>
-              <li>Collaborated with architects, developers, and UX designers on workflow design.</li>
-              <li>Wrote clear user stories and acceptance criteria; prioritized backlog items.</li>
-              <li>Facilitated Agile ceremonies including sprint planning, retrospectives, and backlog grooming.</li>
-              <li>Coordinated cross-functional teams to remove blockers and ensure timely sprint execution.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="skills">
-  <div class="container" data-aos="fade-up">
-    <h2>Skills</h2>
-    <div class="skills-list">
-      <div>
-        <h3>Product Skills</h3>
-        <ul>
-          <li>Backlog Management</li>
-          <li>Roadmap Support</li>
-          <li>User Story Writing</li>
-          <li>UAT Coordination</li>
-          <li>Product Discovery</li>
-          <li>Agile/Scrum</li>
-          <li>Wireframing (Balsamiq)</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Soft Skills</h3>
-        <ul>
-          <li>Stakeholder Engagement</li>
-          <li>Problem-Solving</li>
-          <li>Strategic Decision-Making</li>
-          <li>Cross-Functional Collaboration</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="tools">
-  <div class="container" data-aos="fade-up">
-    <h2>Tools</h2>
-    <div class="skills-list">
-      <div>
-        <h3>Tools & Technologies</h3>
-        <ul>
-          <li>JIRA</li>
-          <li>Confluence</li>
-          <li>Excel</li>
-          <li>ETL Informatica</li>
-          <li>Microsoft Word</li>
-          <li>BRD/FRD</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="certifications">
-  <div class="container" data-aos="fade-up">
-    <h2>Certifications</h2>
-    <div class="card-container">
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <h3>Google Associate<br>Cloud Engineer</h3>
-          </div>
-          <div class="flip-card-back">
-            <p>Obtained professional cloud engineering certification from Google, validating skills in cloud infrastructure and services.</p>
-          </div>
-        </div>
-      </div>
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <h3>Udemy Product<br>Management Fundamentals</h3>
-          </div>
-          <div class="flip-card-back">
-            <p>Completed comprehensive training on product management principles, agile product development, and stakeholder engagement strategies.</p>
-          </div>
-        </div>
-      </div>
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <h3>Udemy Product Owner<br>Certification</h3>
-          </div>
-          <div class="flip-card-back">
-            <p>Certified in product owner responsibilities and agile methodologies, focusing on managing product backlogs and delivering value.</p>
-          </div>
-        </div>
-      </div>
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <h3>Udemy JIRA<br>Certified</h3>
-          </div>
-          <div class="flip-card-back">
-            <p>Demonstrated expertise in using JIRA for project tracking, backlog management, and Agile workflow management.</p>
-          </div>
-        </div>
-      </div>
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <h3>PMI: Business<br>Analysis Foundations</h3>
-          </div>
-          <div class="flip-card-back">
-            <p>Earned foundational certification in business analysis, emphasizing requirements elicitation, documentation, and stakeholder communication.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="awards">
-  <div class="container" data-aos="fade-up">
-    <h2>Awards & Recognition</h2>
-    <div class="info-box">
-      <ul>
-        <li>2x On the Spot Award</li>
-        <li>Service Commitment Award</li>
-        <li>Beyond Performance Award</li>
-        <li>Award for Excellence</li>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#tools">Tools</a></li>
+        <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+        <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
+        <li class="nav-item"><a class="nav-link" href="#awards">Awards</a></li>
+        <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+        <li class="nav-item"><a class="nav-link" href="#languages">Languages</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
       </ul>
     </div>
   </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="hero" class="hero">
+    <div class="hero-content">
+        <h1>Navaneeth Bethur</h1>
+        <p>Business Analyst</p>
+    </div>
 </section>
 
+<!-- About Section -->
+<section id="about">
+    <div class="container">
+        <h2 class="section-title">About</h2>
+        <div class="row align-items-center">
+            <div class="col-md-4 text-center">
+                <img src="profile.jpg" alt="Profile Image" class="profile-img">
+            </div>
+            <div class="col-md-8">
+                <p>Product-focused professional with 3+ years of experience in product management and business analysis. Skilled in Agile methodologies, backlog prioritization, and translating business needs into actionable user stories. Proven expertise in stakeholder engagement, product discovery, and delivering impactful solutions across Banking, Insurance, and HR domains.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills">
+    <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Product Skills</h4>
+                <ul class="skills-list">
+                    <li>Backlog Management</li>
+                    <li>Roadmap Support</li>
+                    <li>User Story Writing</li>
+                    <li>UAT Coordination</li>
+                    <li>Product Discovery</li>
+                    <li>Agile/Scrum</li>
+                    <li>Wireframing (Balsamiq)</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h4>Soft Skills</h4>
+                <ul class="skills-list">
+                    <li>Stakeholder Engagement</li>
+                    <li>Problem-Solving</li>
+                    <li>Strategic Decision-Making</li>
+                    <li>Cross-Functional Collaboration</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tools Section -->
+<section id="tools">
+    <div class="container">
+        <h2 class="section-title">Tools</h2>
+        <ul class="tools-list">
+            <li>JIRA</li>
+            <li>Confluence</li>
+            <li>Excel</li>
+            <li>BRD/FRD Documentation</li>
+            <li>ETL Informatica</li>
+            <li>Microsoft Word</li>
+        </ul>
+    </div>
+</section>
+
+<!-- Work Experience Section -->
+<section id="experience">
+    <div class="container">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="exp-card" data-aos="fade-up">
+            <h4>Tata Consultancy Services Limited</h4>
+            <p><strong>Junior Product Owner</strong> (April 2024 – Present)</p>
+            <ul>
+                <li>Functioned as a Junior Product Owner within the Business Analyst role, acting as the key liaison between business stakeholders and development teams.</li>
+                <li>Supported Product Owners and Specialists in backlog refinement, feature prioritization, and user story definition to align with business goals.</li>
+                <li>Assisted in product discovery and backlog refinement activities, conducting stakeholder interviews and competitive analysis.</li>
+            </ul>
+        </div>
+        <div class="exp-card" data-aos="fade-up">
+            <h4>Tata Consultancy Services Limited</h4>
+            <p><strong>Business Analyst</strong> (Nov 2021 – Mar 2024)</p>
+            <ul>
+                <li>Gathered and analyzed detailed business requirements, defined project scope, and documented use cases and user stories.</li>
+                <li>Collaborated with architects, developers, and designers to design workflows aligned with business objectives.</li>
+                <li>Wrote clear user stories and acceptance criteria; prioritized backlog items with the Product Owner.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Certifications Section -->
+<section id="certifications">
+    <div class="container">
+        <h2 class="section-title">Certifications</h2>
+        <div class="d-flex flex-wrap justify-content-center">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        Google Associate Cloud Engineer
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Google Cloud certification</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        Product Management Fundamentals (Udemy)
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Comprehensive product management course</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        Product Owner Certification (Udemy)
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Training in Agile Product Ownership</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        JIRA Certified (Udemy)
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Certification in JIRA workflow management</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        Business Analysis Foundations (PMI)
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Fundamentals of business analysis</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Awards Section -->
+<section id="awards">
+    <div class="container">
+        <h2 class="section-title">Awards & Recognition</h2>
+        <ul class="tools-list">
+            <li>2× On the Spot Award</li>
+            <li>Service Commitment Award</li>
+            <li>Beyond Performance Award</li>
+            <li>Award for Excellence</li>
+        </ul>
+    </div>
+</section>
+
+<!-- Education Section -->
 <section id="education">
-  <div class="container" data-aos="fade-up">
-    <h2>Education</h2>
-    <div class="info-box">
-      <p><strong>Bachelor of Technology in Computer Science and Engineering</strong><br>
-      Gopalan College of Engineering, Bangalore, Karnataka</p>
+    <div class="container">
+        <h2 class="section-title">Education</h2>
+        <p><strong>Bachelor of Technology in Computer Science and Engineering</strong><br>
+           Gopalan College of Engineering, Bangalore, Karnataka</p>
     </div>
-  </div>
 </section>
 
+<!-- Languages Section -->
 <section id="languages">
-  <div class="container" data-aos="fade-up">
-    <h2>Languages</h2>
-    <div class="info-box">
-      <p>English, Malayalam, Kannada, Hindi, Tamil, Telugu</p>
+    <div class="container">
+        <h2 class="section-title">Languages</h2>
+        <p>English, Malayalam, Kannada, Hindi, Tamil, Telugu</p>
     </div>
-  </div>
 </section>
 
+<!-- Contact Section -->
 <section id="contact">
-  <div class="container" data-aos="fade-up">
-    <h2>Contact</h2>
-    <div class="info-box contact-info">
-      <p>Phone: <a href="tel:9741689860">+91 97416 89860</a></p>
-      <p>Email: <a href="mailto:navaneethb27@gmail.com">navaneethb27@gmail.com</a></p>
+    <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <p class="contact-info"><i class="fa fa-phone"></i> 9741689860</p>
+        <p class="contact-info"><i class="fa fa-envelope"></i> navaneethb27@gmail.com</p>
     </div>
-  </div>
 </section>
 
-<!-- AOS JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<!-- Bootstrap JS and dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- AOS (Animate on Scroll) -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
-  // Initialize AOS
-  AOS.init();
-  // Mobile nav toggle
-  function toggleMenu() {
-    const navLinks = document.querySelector('.nav-links');
-    navLinks.classList.toggle('active');
-  }
+  AOS.init({
+    duration: 800,
+    once: true,
+  });
 </script>
 </body>
 </html>
