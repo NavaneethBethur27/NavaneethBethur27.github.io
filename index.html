@@ -1,185 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Navaneeth Bethur - Portfolio</title>
-  <meta name="description" content="Portfolio of Navaneeth Bethur - Product Owner and Business Analyst with 3+ years of experience.">
-  <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta name="description" content="Portfolio of Navaneeth Bethur - Product Owner and Business Analyst with 3+ years of experience."/>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
     body {
       font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       scroll-behavior: smooth;
     }
     nav {
-      position: fixed;
-      width: 100%;
-      z-index: 1000;
-      background-color: rgba(255, 255, 255, 0.9);
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      background-color: rgba(255,255,255,0.9);
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       transition: all 0.3s ease;
+      padding: 1rem 0;
     }
     nav.shrink {
-      padding-top: 5px !important;
-      padding-bottom: 5px !important;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+      padding: 0.25rem 0;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
     }
-    .navbar-brand {
-      font-weight: bold;
-      font-size: 1.25rem;
-    }
+    .navbar-brand { font-weight: 600; font-size: 1.25rem; }
     .nav-link {
-      color: #333 !important;
-      font-weight: 500;
-      margin-right: 15px;
+      color: #333 !important; font-weight: 500; margin-right: 1rem;
       transition: color 0.2s;
     }
-    .nav-link:hover {
-      color: #007bff !important;
+    .nav-link:hover, .nav-link.active {
+      color: #007bff !important; border-bottom: 2px solid #007bff;
     }
-    .nav-link.active {
-      color: #007bff !important;
-      border-bottom: 2px solid #007bff;
-    }
+    section { padding: 80px 15px; scroll-margin-top: 100px; }
+    .section-title { text-align: center; margin-bottom: 40px; font-size: 2rem; }
     .hero {
-      height: 100vh;
-      background: url('style2.png') center/cover no-repeat;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+      height: 100vh; background: url('style2.png') center/cover no-repeat;
+      position: relative; display: flex; align-items: center; justify-content: center;
+      color: white; text-shadow: 0 1px 4px rgba(0,0,0,0.7);
     }
     .hero::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(0,0,0,0.5);
+      content: ''; position: absolute; top:0;left:0;right:0;bottom:0;
+      background: rgba(0,0,0,0.5);
     }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-    }
-    section {
-      padding: 60px 15px;
-      scroll-margin-top: 70px;
-    }
-    h2.section-title {
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 2rem;
-      font-weight: 600;
-    }
-    .profile-img {
-      max-width: 200px;
-      border-radius: 50%;
-      margin-bottom: 20px;
-    }
-    .info-card {
-      background-color: #f8f9fa;
-      border: 1px solid #e9ecef;
-      border-radius: 8px;
-      padding: 20px;
-      margin-bottom: 20px;
-    }
-    .flip-card {
-      background-color: transparent;
-      width: 250px;
-      height: 150px;
-      perspective: 1000px;
-      margin: 15px;
-    }
-    .flip-card-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      text-align: center;
-      transition: transform 0.6s;
-      transform-style: preserve-3d;
-    }
-    .flip-card:hover .flip-card-inner {
-      transform: rotateY(180deg);
-    }
-    .flip-card-front, .flip-card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 15px;
-    }
-    .flip-card-front {
-      background-color: #007bff;
-      color: white;
-    }
-    .flip-card-back {
-      background-color: #fff;
-      color: #333;
-      transform: rotateY(180deg);
-    }
-    @media (max-width: 767px) {
-      .hero {
-        height: 50vh;
-        background-size: cover;
-      }
-    }
+    .hero-content { position: relative; z-index:2; }
+    .info-card { background: #f8f9fa; border:1px solid #e9ecef; border-radius:8px; padding:20px; }
+    .profile-img { width:150px; border-radius:50%; margin-bottom:20px; }
   </style>
 </head>
-<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="80" tabindex="0">
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="100" tabindex="0">
 
-<nav class="navbar navbar-expand-lg navbar-light py-3" id="mainNav">
-  <div class="container">
-    <a class="navbar-brand" href="#">NB</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-        <li class="nav-item"><a class="nav-link" href="#tools">Tools</a></li>
-        <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-        <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
-        <li class="nav-item"><a class="nav-link" href="#awards">Awards</a></li>
-        <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
-        <li class="nav-item"><a class="nav-link" href="#languages">Languages</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+  <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="#">NB</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tools">Tools</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
+          <li class="nav-item"><a class="nav-link" href="#awards">Awards</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="#languages">Languages</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <h1>Navaneeth Bethur</h1>
+      <p>Product Owner & Business Analyst</p>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About</h2>
+      <div class="info-card text-center">
+        <img src="profile.jpg" alt="Profile" class="profile-img"/>
+        <p>Product-focused professional with 3+ years in product management & business analysis. Skilled in Agile, backlog prioritization, and stakeholder engagement.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <h5>Product & Business</h5>
+          <ul>
+            <li>Backlog Management</li><li>Roadmap Support</li><li>User Story Writing</li>
+            <li>UAT Coordination</li><li>Product Discovery</li><li>Agile/Scrum</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <h5>Soft Skills</h5>
+          <ul>
+            <li>Active Listening</li><li>Problem-Solving</li><li>Strategic Decision-Making</li>
+            <li>Collaboration</li><li>Communication</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tools -->
+  <section id="tools">
+    <div class="container">
+      <h2 class="section-title">Tools</h2>
+      <ul class="list-inline text-center">
+        <li class="list-inline-item">JIRA</li>
+        <li class="list-inline-item">Confluence</li>
+        <li class="list-inline-item">Excel</li>
+        <li class="list-inline-item">Informatica ETL</li>
+        <li class="list-inline-item">Figma</li>
       </ul>
     </div>
-  </div>
-</nav>
+  </section>
 
-<section class="hero" id="hero">
-  <div class="hero-content"></div>
-</section>
+  <!-- Experience -->
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title">Experience</h2>
+      <div class="mb-4">
+        <h4>Tata Consultancy Services</h4>
+        <p><strong>Junior Product Owner</strong> (Apr 2024–Present)</p>
+        <ul>
+          <li>Liaison between stakeholders & dev teams.</li>
+          <li>Backlog refinement & feature prioritization.</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Tata Consultancy Services</h4>
+        <p><strong>Business Analyst</strong> (Nov 2021–Mar 2024)</p>
+        <ul>
+          <li>Requirements gathering & documentation.</li>
+          <li>User stories & flow diagrams.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-<!-- Rest of your sections remain exactly the same (about, skills, tools, etc.) -->
+  <!-- Certifications -->
+  <section id="certifications">
+    <div class="container">
+      <h2 class="section-title">Certifications</h2>
+      <div class="d-flex flex-wrap justify-content-center">
+        <!-- flip-cards… -->
+        <div class="info-card m-2">Google Associate Cloud Engineer</div>
+        <div class="info-card m-2">Product Management Fundamentals</div>
+        <div class="info-card m-2">Product Owner Certification</div>
+        <div class="info-card m-2">JIRA Certified</div>
+        <div class="info-card m-2">Business Analysis Foundations</div>
+      </div>
+    </div>
+  </section>
 
-<!-- Add this script at the bottom before </body> -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-  window.addEventListener('scroll', function () {
-    const nav = document.getElementById('mainNav');
-    if (window.scrollY > 60) {
-      nav.classList.add('shrink');
-    } else {
-      nav.classList.remove('shrink');
-    }
-  });
+  <!-- Awards -->
+  <section id="awards">
+    <div class="container">
+      <h2 class="section-title">Awards & Recognition</h2>
+      <ul class="list-unstyled text-center">
+        <li>2× On the Spot Award</li>
+        <li>Service Commitment Award</li>
+        <li>Beyond Performance Award</li>
+        <li>Award for Excellence</li>
+      </ul>
+    </div>
+  </section>
 
-  // Bootstrap ScrollSpy refresh fix
-  const scrollSpy = new bootstrap.ScrollSpy(document.body, {
-    target: '#mainNav',
-    offset: 80
-  });
-</script>
+  <!-- Education -->
+  <section id="education">
+    <div class="container text-center">
+      <h2 class="section-title">Education</h2>
+      <p><strong>B.Tech in CSE</strong>, Gopalan College of Engineering, Bangalore</p>
+    </div>
+  </section>
+
+  <!-- Languages -->
+  <section id="languages">
+    <div class="container text-center">
+      <h2 class="section-title">Languages</h2>
+      <p>English • Malayalam • Kannada • Hindi • Tamil • Telugu</p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container text-center">
+      <h2 class="section-title">Contact</h2>
+      <p><i class="fa fa-phone"></i> +91 9741689860</p>
+      <p><i class="fa fa-envelope"></i> navaneethb27@gmail.com</p>
+      <a href="NavaneethB.docx" class="btn btn-primary mt-3" download>
+        <i class="fa fa-download"></i> Download Resume
+      </a>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Navbar shrink
+    window.addEventListener('scroll', () => {
+      document.getElementById('mainNav')
+        .classList.toggle('shrink', window.scrollY > 60);
+    });
+    // Refresh ScrollSpy
+    new bootstrap.ScrollSpy(document.body, {
+      target: '#mainNav', offset: 100
+    });
+  </script>
 </body>
 </html>
