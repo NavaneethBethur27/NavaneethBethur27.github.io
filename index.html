@@ -1,224 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Navaneeth Bethur - Portfolio</title>
-  <meta name="description" content="Portfolio of Navaneeth Bethur - Product Owner and Business Analyst with 3+ years of experience."/>
-  <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap" rel="stylesheet"/>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <meta name="description" content="Portfolio of Navaneeth Bethur - Product Owner and Business Analyst with 3+ years of experience. Skills include backlog management, Agile, JIRA, and more.">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
       font-family: 'Poppins', sans-serif;
-      margin: 0; padding: 0;
+      margin: 0;
+      padding: 0;
       scroll-behavior: smooth;
     }
     nav {
-      position: fixed; top: 0; width: 100%; z-index: 1000;
-      background-color: rgba(255,255,255,0.9);
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+      background-color: rgba(255, 255, 255, 0.9);
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: all 0.3s ease;
-      padding: 1rem 0;
     }
-    nav.shrink {
-      padding: 0.25rem 0;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
-    }
-    .navbar-brand { font-weight: 600; font-size: 1.25rem; }
-    .nav-link {
-      color: #333 !important; font-weight: 500; margin-right: 1rem;
-      transition: color 0.2s;
-    }
-    .nav-link:hover, .nav-link.active {
-      color: #007bff !important; border-bottom: 2px solid #007bff;
-    }
-    section { padding: 80px 15px; scroll-margin-top: 100px; }
-    .section-title { text-align: center; margin-bottom: 40px; font-size: 2rem; }
+    .nav-link { color: #333 !important; font-weight: 500; margin-right: 15px; }
+    .nav-link:hover { color: #007bff !important; }
+    .dropdown:hover .dropdown-menu { display: block; margin-top: 0; }
     .hero {
-      height: 100vh; background: url('style2.png') center/cover no-repeat;
-      position: relative; display: flex; align-items: center; justify-content: center;
-      color: white; text-shadow: 0 1px 4px rgba(0,0,0,0.7);
+      height: 100vh;
+      background: url('style2.png') center/cover no-repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
     .hero::before {
-      content: ''; position: absolute; top:0;left:0;right:0;bottom:0;
-      background: rgba(0,0,0,0.5);
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0,0,0,0.5);
     }
-    .hero-content { position: relative; z-index:2; }
-    .info-card { background: #f8f9fa; border:1px solid #e9ecef; border-radius:8px; padding:20px; }
-    .profile-img { width:150px; border-radius:50%; margin-bottom:20px; }
+    .hero-content { position: relative; z-index: 2; }
+    section { padding: 60px 15px; scroll-margin-top: 70px; }
+    h2.section-title { text-align: center; margin-bottom: 40px; font-size: 2rem; font-weight: 600; }
+    .profile-img { max-width: 200px; border-radius: 50%; margin-bottom: 20px; }
+    .info-card { background-color: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; margin-bottom: 20px; }
+    .flip-card { background-color: transparent; width: 250px; height: 150px; perspective: 1000px; margin: 15px; }
+    .flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s; transform-style: preserve-3d; }
+    .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
+    .flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border: 1px solid #ddd; border-radius: 8px; display: flex; align-items: center; justify-content: center; padding: 15px; }
+    .flip-card-front { background-color: #007bff; color: white; }
+    .flip-card-back { background-color: #fff; color: #333; transform: rotateY(180deg); }
+    @media (max-width: 767px) {
+      .hero { height: 50vh; background-size: cover; }
+    }
   </style>
 </head>
-<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="100" tabindex="0">
+<body>
 
-  <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand" href="#">NB</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-          <li class="nav-item"><a class="nav-link" href="#tools">Tools</a></li>
-          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-          <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
-          <li class="nav-item"><a class="nav-link" href="#awards">Awards</a></li>
-          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
-          <li class="nav-item"><a class="nav-link" href="#languages">Languages</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero -->
-  <section class="hero" id="hero">
-    <div class="hero-content">
-      <h1>Navaneeth Bethur</h1>
-      <p>Product Owner & Business Analyst</p>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section id="about">
-    <div class="container">
-      <h2 class="section-title">About</h2>
-      <div class="info-card text-center">
-        <img src="profile.jpg" alt="Profile" class="profile-img"/>
-        <p>Product-focused professional with 3+ years in product management & business analysis. Skilled in Agile, backlog prioritization, and stakeholder engagement.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills">
-    <div class="container">
-      <h2 class="section-title">Skills</h2>
-      <div class="row">
-        <div class="col-md-6">
-          <h5>Product & Business</h5>
-          <ul>
-            <li>Backlog Management</li><li>Roadmap Support</li><li>User Story Writing</li>
-            <li>UAT Coordination</li><li>Product Discovery</li><li>Agile/Scrum</li>
-          </ul>
-        </div>
-        <div class="col-md-6">
-          <h5>Soft Skills</h5>
-          <ul>
-            <li>Active Listening</li><li>Problem-Solving</li><li>Strategic Decision-Making</li>
-            <li>Collaboration</li><li>Communication</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Tools -->
-  <section id="tools">
-    <div class="container">
-      <h2 class="section-title">Tools</h2>
-      <ul class="list-inline text-center">
-        <li class="list-inline-item">JIRA</li>
-        <li class="list-inline-item">Confluence</li>
-        <li class="list-inline-item">Excel</li>
-        <li class="list-inline-item">Informatica ETL</li>
-        <li class="list-inline-item">Figma</li>
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">NB</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#tools">Tools</a></li>
+        <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+        <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
+        <li class="nav-item"><a class="nav-link" href="#awards">Awards</a></li>
+        <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+        <li class="nav-item"><a class="nav-link" href="#languages">Languages</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
       </ul>
     </div>
-  </section>
+  </div>
+</nav>
 
-  <!-- Experience -->
-  <section id="experience">
-    <div class="container">
-      <h2 class="section-title">Experience</h2>
-      <div class="mb-4">
-        <h4>Tata Consultancy Services</h4>
-        <p><strong>Junior Product Owner</strong> (Apr 2024–Present)</p>
-        <ul>
-          <li>Liaison between stakeholders & dev teams.</li>
-          <li>Backlog refinement & feature prioritization.</li>
-        </ul>
+<section class="hero" id="hero">
+  <div class="hero-content">
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <h2 class="section-title">About</h2>
+    <div class="info-card text-center">
+      <img src="profile.jpg" class="profile-img" alt="Profile">
+      <p>Product-focused professional with 3+ years of experience in product management and business analysis. Skilled in Agile methodologies, backlog prioritization, and translating business needs into actionable user stories.</p>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <h2 class="section-title">Skills</h2>
+    <div class="info-card">
+      <h5>Product & Business Skills</h5>
+      <ul>
+        <li>Backlog Management</li>
+        <li>Roadmap Support</li>
+        <li>User Story Writing</li>
+        <li>UAT Coordination</li>
+        <li>Product Discovery</li>
+        <li>Agile/Scrum</li>
+        <li>Wireframing (Figma)</li>
+        <li>Requirements Gathering</li>
+        <li>Stakeholder Engagement</li>
+      </ul>
+      <h5 class="mt-4">Soft Skills</h5>
+      <ul>
+        <li>Active Listening</li>
+        <li>Problem-Solving</li>
+        <li>Strategic Decision-Making</li>
+        <li>Cross-Functional Collaboration</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="tools">
+  <div class="container">
+    <h2 class="section-title">Tools</h2>
+    <div class="info-card">
+      <ul>
+        <li>JIRA</li>
+        <li>Confluence</li>
+        <li>Excel</li>
+        <li>BRD/FRD Documentation</li>
+        <li>ETL Informatica</li>
+        <li>Microsoft Word</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <h2 class="section-title">Work Experience</h2>
+    <div class="exp-card">
+      <h4>Tata Consultancy Services Limited</h4>
+      <p><strong>Junior Product Owner</strong> (April 2024 – Present)</p>
+      <ul>
+        <li>Functioned as a Junior Product Owner within my Business Analyst role, acting as the key liaison between business stakeholders and development teams.</li>
+        <li>Supported Product Owners and Specialists in backlog refinement, feature prioritization, and user story definition to align with business goals.</li>
+        <li>Assisted in product discovery and backlog refinement activities, conducting stakeholder interviews and competitive analysis.</li>
+      </ul>
+    </div>
+    <div class="exp-card">
+      <h4>Tata Consultancy Services Limited</h4>
+      <p><strong>Business Analyst</strong> (Nov 2021 – Mar 2024)</p>
+      <ul>
+        <li>Gathered and analyzed detailed business requirements, defined project scope, and documented use cases, user stories, and flow diagrams.</li>
+        <li>Collaborated with architects, developers, and designers to design workflows aligned with business objectives.</li>
+        <li>Wrote clear user stories and acceptance criteria; prioritized backlog items with the Product Owner.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="text-center my-5">
+  <a href="NavaneethB.docx" class="btn btn-primary" download>
+    <i class="fa fa-download"></i> Download Resume
+  </a>
+</section>
+
+<section id="certifications">
+  <div class="container">
+    <h2 class="section-title">Certifications</h2>
+    <div class="d-flex flex-wrap justify-content-center">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            Google Associate Cloud Engineer
+          </div>
+          <div class="flip-card-back">
+            <p>Validated skills in deploying, managing, and securing Google Cloud solutions</p>
+          </div>
+        </div>
       </div>
-      <div>
-        <h4>Tata Consultancy Services</h4>
-        <p><strong>Business Analyst</strong> (Nov 2021–Mar 2024)</p>
-        <ul>
-          <li>Requirements gathering & documentation.</li>
-          <li>User stories & flow diagrams.</li>
-        </ul>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            Product Management Fundamentals (Udemy)
+          </div>
+          <div class="flip-card-back">
+            <p>Core PM concepts including roadmaps, MVPs, and user-centric design</p>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            Product Owner Certification (Udemy)
+          </div>
+          <div class="flip-card-back">
+            <p>Agile product ownership with focus on backlog management & sprint planning</p>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            JIRA Certified (Udemy)
+          </div>
+          <div class="flip-card-back">
+            <p>Proficient in configuring JIRA for Agile workflows and sprint tracking</p>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            Business Analysis Foundations (PMI)
+          </div>
+          <div class="flip-card-back">
+            <p>Equipped with tools to bridge business objectives with technical solutions</p>
+          </div>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Certifications -->
-  <section id="certifications">
-    <div class="container">
-      <h2 class="section-title">Certifications</h2>
-      <div class="d-flex flex-wrap justify-content-center">
-        <!-- flip-cards… -->
-        <div class="info-card m-2">Google Associate Cloud Engineer</div>
-        <div class="info-card m-2">Product Management Fundamentals</div>
-        <div class="info-card m-2">Product Owner Certification</div>
-        <div class="info-card m-2">JIRA Certified</div>
-        <div class="info-card m-2">Business Analysis Foundations</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Awards -->
-  <section id="awards">
-    <div class="container">
-      <h2 class="section-title">Awards & Recognition</h2>
-      <ul class="list-unstyled text-center">
+<section id="awards">
+  <div class="container">
+    <h2 class="section-title">Awards & Recognition</h2>
+    <div class="info-card">
+      <ul>
         <li>2× On the Spot Award</li>
         <li>Service Commitment Award</li>
         <li>Beyond Performance Award</li>
         <li>Award for Excellence</li>
       </ul>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Education -->
-  <section id="education">
-    <div class="container text-center">
-      <h2 class="section-title">Education</h2>
-      <p><strong>B.Tech in CSE</strong>, Gopalan College of Engineering, Bangalore</p>
+<section id="education">
+  <div class="container">
+    <h2 class="section-title">Education</h2>
+    <div class="info-card">
+      <p><strong>B.Tech in Computer Science & Engineering</strong><br>Gopalan College of Engineering, Bangalore</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Languages -->
-  <section id="languages">
-    <div class="container text-center">
-      <h2 class="section-title">Languages</h2>
-      <p>English • Malayalam • Kannada • Hindi • Tamil • Telugu</p>
+<section id="languages">
+  <div class="container">
+    <h2 class="section-title">Languages</h2>
+    <div class="info-card">
+      <p>English, Malayalam, Kannada, Hindi, Tamil, Telugu</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Contact -->
-  <section id="contact">
-    <div class="container text-center">
-      <h2 class="section-title">Contact</h2>
-      <p><i class="fa fa-phone"></i> +91 9741689860</p>
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title">Contact</h2>
+    <div class="info-card">
+      <p><i class="fa fa-phone"></i> +91 9741689860</p>
       <p><i class="fa fa-envelope"></i> navaneethb27@gmail.com</p>
-      <a href="NavaneethB.docx" class="btn btn-primary mt-3" download>
-        <i class="fa fa-download"></i> Download Resume
-      </a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    // Navbar shrink
-    window.addEventListener('scroll', () => {
-      document.getElementById('mainNav')
-        .classList.toggle('shrink', window.scrollY > 60);
-    });
-    // Refresh ScrollSpy
-    new bootstrap.ScrollSpy(document.body, {
-      target: '#mainNav', offset: 100
-    });
-  </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
